@@ -1,0 +1,46 @@
+<template>
+    <lightning-card title="Send Email">
+        <div>
+            <lightning-card title="From:"></lightning-card> 
+  <lightning-input
+                name=""
+                label=""
+            ></lightning-input> 
+                <lightning-card title="To:"></lightning-card>
+            
+                <lightning-record-edit-form object-api-name="Contact" id="createContactto" >
+                    <lightning-input-field field-name="AccountId" variant="label-hidden" onchange={handleAccountSelection} required> </lightning-input-field>
+                </lightning-record-edit-form> 
+                <lightning-card title="CC:"></lightning-card>
+                <lightning-record-edit-form object-api-name="Contact" id="createContactcc" >
+                    <lightning-input-field field-name="AccountId" variant="label-hidden" onchange={handleAccountSelection} required> </lightning-input-field>
+                </lightning-record-edit-form> 
+                <lightning-combobox
+                name="progress"
+                label="Email Template"
+                value=""
+                placeholder="Select "
+                options={options}
+                onchange={handleChange}
+                required
+        ></lightning-combobox>
+
+            <!--lightning-input
+                name="Email Template"
+                label="Email Template"
+            ></lightning-input--> 
+            <!--lightning-input
+            name="Email BODY"
+            label="Email Body"></lightning-input-->
+            
+            <lightning-input-rich-text
+            formats="font, bold, italic, underline, strike, list, indent, align,
+            link, image, clean, code, code-block, color, background, mention, header"
+            value={emailBody} onchange={handleBodyChange} data-id="reset">
+           </lightning-input-rich-text><br/>
+        </div>
+        <lightning-button variant="Brand" label="SEND" title="Primary action" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+        <lightning-button variant="Neutral" label="CANCEL" title="Non-primary action" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+        
+    </lightning-card>
+</template>

@@ -1,0 +1,33 @@
+<template>
+    <lightning-card title="Toogle" >
+ <p class="slds-text-heading_small"></p>
+
+    <lightning-button onclick={handleToggleSectionD} label=""></lightning-button>
+
+    <lightning-accordion class="example-accordion"
+                         onsectiontoggle={handleToggleSection}
+                         active-section-name="B">
+        <lightning-accordion-section name="A" label="Accordion Title A">
+            <p>This is the content area for section A.</p>
+            <p>hi goog morning budy.</p>
+        </lightning-accordion-section>
+
+        <lightning-accordion-section name="B" label="Accordion Title B">
+            <p>This is the content area for section B.</p>
+            <p>Hi good aftrnoon budy.</p>
+        </lightning-accordion-section>
+
+        <lightning-accordion-section name="C" label="Accordion Title C">
+            <p>This is the content area for section C.</p>
+            <p>Hi Good Evening Budy.</p>
+        </lightning-accordion-section>
+
+        <template if:true={isVisible}>
+            <lightning-accordion-section name="D" label="Accordion Title D">
+                <p>This is the content area for section D.</p>
+                <p>Hi Good Night Budy.</p>
+            </lightning-accordion-section>
+        </template>
+    </lightning-accordion>
+</lightning-card>
+</template>

@@ -1,0 +1,10 @@
+<template>
+    <h2> Account table</h2>
+    <template if:true={accList}>
+        <lightning-table data={accList} columns={columns} key-field="Id">
+        </lightning-table>
+    </template>
+    <template if:true={error}>
+        {error}
+    </template>
+</template>

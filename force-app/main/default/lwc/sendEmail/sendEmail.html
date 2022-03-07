@@ -1,0 +1,89 @@
+<template>
+<!--lightning-card title="Send Email"-->
+    <lightning-quick-action-panel header="E-MAIL">
+
+
+    <!--lightning-card title="To:"-->
+     <lightning-record-edit-form object-api-name="Contact" id="createAccountto">
+     <lightning-input-field 
+     <lightning-input type="email" label="Email">
+     field-name="AccountId"
+     variant="label-hidden"
+     onchange={handleContactSelection} 
+     required>
+     </lightning-input>
+     </lightning-input-field>
+ </lightning-record-edit-form> 
+<!--/lightning-card-->
+
+<!--lightning-card title="CC:"-->
+    <lightning-record-edit-form class="margin-top-medium" object-api-name="Contact" id="createAccountcc" >
+        <lightning-input-field 
+        name="Cc"
+        label="Cc"
+        value=""
+        field-name="AccountId"
+        variant="label-hidden"
+        onchange={handleContactSelection} 
+        required> 
+        </lightning-input-field>
+    </lightning-record-edit-form> 
+ <!--/lightning-card-->
+
+ <!--lightning-record-edit-form object-api-name="Contact" id="createAccountcc">
+     <lightning-input-field field-name="ContactId" 
+     variant="label-hidden" 
+     onchange={handleAccountSelection} 
+     required> 
+     </lightning-input-field>
+ </lightning-record-edit-form--> 
+ <div class="slds-form-element" title="subject">
+    <label class="slds-form-element__label" for="subject"> </label>
+    <div class="slds-form-element__control">
+        <input
+            type="text"
+            name="subject"
+            id="subject"
+            value={subject}
+            placeholder="Subject..."
+            class="slds-input"
+            onchange={handleSubjectChange}
+        >
+    </div>
+</div>
+
+
+     <lightning-combobox
+     name="Email Template"
+     label="Email Template"
+     value=""
+     placeholder="Select "
+     options={options}
+     onchange={handleChange}
+     required>
+ </lightning-combobox>
+ <br>
+ <!--lightning-input
+     name="Email Template"
+     label="Email Template"
+ ></lightning-input--> 
+ <!--lightning-input
+ name="Email BODY"
+ label="Email Body"></lightning-input-->
+ 
+ <lightning-input-rich-text
+ formats="font, bold, italic, underline, strike, list, indent, align,
+ link, image, clean, code, code-block, color, background, mention, header"
+ value={emailBody} onchange={handleBodyChange} data-id="reset">
+</lightning-input-rich-text>
+
+<br>
+
+<lightning-button variant="Brand" label="SEND" title="Primary action" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+<lightning-button variant="Neutral" label="CANCEL" title="Non-primary action" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+
+</lightning-quick-action-panel>
+<!--/lightning-card-->
+</template>
+
+
